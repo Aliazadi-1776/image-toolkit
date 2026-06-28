@@ -449,21 +449,21 @@ For public releases, recommended modes:
 
 Before publishing a GitHub Release:
 
-- [ ] Build Linux `.deb`
+- [x] Build Linux `.deb`
 - [ ] Build Linux `.AppImage`
-- [ ] Build Windows `.exe`
-- [ ] Test bundled tools on a clean Linux system
-- [ ] Test installer on a real Windows machine
-- [ ] Check WebView2 behavior on Windows
-- [ ] Test JPG to WebP
-- [ ] Test JPG to AVIF
-- [ ] Test PNG to JPEG
-- [ ] Check command preview
-- [ ] Check queue progress
-- [ ] Add screenshots
-- [ ] Add license
-- [ ] Add third-party notices
-- [ ] Create release notes
+- [x] Build Windows `.exe`
+- [x] Test bundled tools on a clean Linux system
+- [x] Test installer on a real Windows machine
+- [x] Check WebView2 behavior on Windows
+- [x] Test JPG to WebP
+- [x] Test JPG to AVIF
+- [x] Test PNG to JPEG
+- [x] Check command preview
+- [x] Check queue progress
+- [x] Add screenshots
+- [x] Add license
+- [x] Add third-party notices
+- [x] Create release notes
 
 ### فارسی
 
