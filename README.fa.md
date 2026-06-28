@@ -225,5 +225,5 @@ MIT License — فایل [LICENSE](./LICENSE) رو ببین.
 <div align="center" dir="rtl">
 
 ### اگر به کارت اومد، یه Star کوچیک خیلی خوشحالم می‌کنه ⭐
-
+[$donate❤️‍🔥](https://daramet.com/wrench)
 </div>
