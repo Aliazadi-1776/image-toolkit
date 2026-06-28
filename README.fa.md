@@ -341,3 +341,4 @@ src-tauri/vendor/THIRD_PARTY_NOTICES/
 - Auto-update
 - خروجی macOS
 - GitHub Actions برای Release خودکار
+ss
