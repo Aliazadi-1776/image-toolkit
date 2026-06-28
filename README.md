@@ -225,5 +225,5 @@ MIT License. See [LICENSE](./LICENSE).
 <div align="center">
 
 ### If this tool helped you, a star would make my day ⭐
-
+[$donate❤️‍🔥](https://daramet.com/wrench)
 </div>
