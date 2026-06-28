@@ -83,7 +83,7 @@ docs/screenshots/
 Example Markdown:
 
 ```md
-![Image Toolkit Home](docs/screenshots/home.png)
+![Image Toolkit Home](docs/screenshot/home.png)
 ```
 
 ---
