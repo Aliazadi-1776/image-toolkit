@@ -38,7 +38,7 @@
 * [x] Bundle Linux tools
 * [x] Bundle Windows tools
 * [x] Build Linux `.deb`
-* [x] Build Linux `.AppImage`
+* [ ] Build Linux `.AppImage`
 * [x] Build Windows `.exe` installer with NSIS
 * [x] Cross-build Windows installer from Linux
 * [x] Add English README
@@ -51,7 +51,7 @@
 ## 🚀 v0.1.0 Release Checklist
 
 * [x] Test Linux `.deb` on a clean Ubuntu/Debian machine
-* [x] Test Linux `.AppImage` on a clean Linux machine
+* [ ] Test Linux `.AppImage` on a clean Linux machine
 * [x] Test Windows `.exe` installer on a real Windows machine
 * [x] Confirm ImageMagick shows `ready` from bundled resources on Linux
 * [x] Confirm cwebp shows `ready` from bundled resources on Linux
