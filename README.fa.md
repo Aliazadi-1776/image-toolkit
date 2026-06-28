@@ -290,23 +290,6 @@ Image Toolkit کاملاً local-first است.
 
 ---
 
-## لایسنس
-
-قبل از انتشار عمومی، برای پروژه یک license مشخص کن.
-
-پیشنهادها:
-
-- MIT
-- Apache-2.0
-- GPL-3.0
-
-ابزارهای third-party لایسنس‌های مستقل خودشان را دارند. noticeها را اینجا نگه دار:
-
-```text
-src-tauri/vendor/THIRD_PARTY_NOTICES/
-```
-
----
 
 ## Credits
 
