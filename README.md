@@ -291,24 +291,6 @@ Image Toolkit is local-first.
 
 ---
 
-## License
-
-This repository should include a project license before public release.
-
-Suggested options:
-
-- MIT
-- Apache-2.0
-- GPL-3.0
-
-Third-party tools have their own licenses. Keep notices in:
-
-```text
-src-tauri/vendor/THIRD_PARTY_NOTICES/
-```
-
----
-
 ## Credits
 
 Built by **ViraPeak**.
