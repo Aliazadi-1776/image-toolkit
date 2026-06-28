@@ -1,148 +1,110 @@
-# ایمیج تولکیت | Image Toolkit
+<div align="center" dir="rtl">
 
-<p align="center">
-  <strong>یک نرم‌افزار دسکتاپ شفاف، سریع و حرفه‌ای برای تبدیل، فشرده‌سازی و پردازش دسته‌ای تصاویر.</strong>
-</p>
+# 🖼️ Image Toolkit
 
-<p align="center">
-  ساخته‌شده با <strong>Tauri v2</strong>، <strong>Rust</strong>، <strong>React</strong>، <strong>TypeScript</strong>، <strong>Vite</strong>، <strong>Tailwind CSS</strong> و ابزارهای قدرتمندی مثل <strong>ImageMagick</strong>، <strong>cwebp</strong> و <strong>avifenc</strong>.
-</p>
+### یک اپ دسکتاپ سریع و لوکال برای تبدیل، تغییر سایز، فشرده‌سازی و تمیز کردن تصاویر؛ بدون اینکه پشت پرده چیزی قایم شود.
 
-<p align="center">
-  <a href="./README.md">English</a>
-  ·
-  <a href="./docs/TECHNICAL.md">مستندات فنی</a>
-  ·
-  <a href="#ساخت-از-روی-سورس">ساخت از روی سورس</a>
-  ·
-  <a href="#خروجیهای-نهایی">خروجی‌های نهایی</a>
-</p>
+<img src="./docs/screenshot/home.png" alt="اسکرین‌شات Image Toolkit" width="900"/>
 
----
+<br/>
 
-## Image Toolkit چیست؟
+[![Made with Tauri](https://img.shields.io/badge/Made%20with-Tauri-24C8DB?style=for-the-badge&logo=tauri&logoColor=white)](https://tauri.app/)
+[![Rust](https://img.shields.io/badge/Rust-Backend-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=111)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](./LICENSE)
 
-Image Toolkit یک رابط گرافیکی دسکتاپ برای پردازش تصاویر است؛ اما با یک تفاوت مهم:
+<br/>
 
-این برنامه موتور پردازش تصویر اختصاصی خودش را از صفر نمی‌سازد.  
-به‌جای آن، ابزارهای قدرتمند و امتحان‌پس‌داده‌ی خط فرمان را مدیریت می‌کند و دقیقاً نشان می‌دهد چه دستوری قرار است اجرا شود.
+[English](./README.md) · [مستندات فنی](./TECHNICAL.md) · [TODO](./TODO.md) · [ریپازیتوری](https://github.com/Aliazadi-1776/image-toolkit)
 
-یعنی:
-
-- پردازش مخفی وجود ندارد
-- فایل‌ها به سرور آپلود نمی‌شوند
-- هر گزینه در رابط کاربری به یک آرگومان واقعی CLI تبدیل می‌شود
-- کاربر می‌تواند دستور نهایی را قبل از اجرا ببیند
-- برنامه قابل بررسی، قابل توسعه و قابل اعتماد است
+</div>
 
 ---
 
-## امکانات اصلی
+## ✨ Image Toolkit چیه؟
+
+Image Toolkit یه ابزار دسکتاپ برای پردازش تصویرهاست؛ مخصوصاً وقتی چندتا یا چندصدتا عکس داری و نمی‌خوای تک‌تک با ابزارهای مختلف درگیر بشی.
+
+ایده‌اش ساده‌ست:
+
+> یه رابط کاربری تمیز بالا، ابزارهای واقعی و قدرتمند پایین.
+
+این برنامه خودش یه موتور عجیب و غریب مخفی نمی‌سازه. به‌جاش از ابزارهای شناخته‌شده مثل **ImageMagick**، **cwebp** و **avifenc** استفاده می‌کنه و حتی دستور نهایی رو هم بهت نشون می‌ده.
+
+---
+
+## ⚡ چرا ساخته شد؟
+
+خیلی از ابزارهای تبدیل عکس یا آنلاینن، یا زیادی سنگینن، یا معلوم نیست دقیقاً پشت صحنه چه کاری انجام می‌دن.
+
+من یه چیزی می‌خواستم که لوکال کار کنه، فایل‌ها رو آپلود نکنه، batch processing واقعی داشته باشه، دستور نهایی رو نشون بده و روی لینوکس و ویندوز خروجی قابل نصب بده.
+
+---
+
+## 🧰 امکانات
 
 - تبدیل دسته‌ای تصاویر
-- پشتیبانی از فایل تکی، چند فایل، فولدر و Drag & Drop
-- انتخاب خروجی در همان فولدر، فولدر دلخواه یا overwrite
-- تبدیل فرمت‌ها:
-  - WebP
-  - AVIF
-  - PNG
-  - JPEG
-  - TIFF
-  - BMP
-  - GIF
-  - ICO
-- تغییر سایز تصویر
-- کنترل کیفیت خروجی
-- پشتیبانی از مسیرهای lossy و lossless
-- حذف متادیتا
-- نوشتن متادیتا
+- تغییر سایز و فشرده‌سازی
+- حذف metadata
+- نوشتن metadata ساده
 - پیش‌نمایش دستور نهایی
-- صف پردازش
-- نمایش پیشرفت پردازش
-- لاگ اجرای هر فایل
-- پنل وضعیت ابزارهای داخلی
-- خروجی قابل نصب:
-  - Linux `.deb`
-  - Linux `.AppImage`
-  - Windows `.exe` installer
+- اجرای صف پردازش
+- نمایش progress و log
+- بررسی آماده بودن ابزارهای داخلی
+- کار کاملاً لوکال روی سیستم خودت
 
 ---
 
-## اسکرین‌شات‌ها
+## 🖼️ فرمت‌های پشتیبانی‌شده
 
-
-
-![Image Toolkit Home](docs/screenshot/home.png)
-
-
----
-
-## با چه چیزهایی ساخته شده؟
-
-| بخش | تکنولوژی |
+| فرمت | وضعیت |
 |---|---|
-| پوسته دسکتاپ | Tauri v2 |
-| بک‌اند | Rust |
-| فرانت‌اند | React |
-| زبان فرانت | TypeScript |
-| ابزار Build | Vite |
-| استایل | Tailwind CSS |
-| مدیریت State | Zustand |
-| دیالوگ‌های native | Tauri Dialog Plugin |
-| ابزار پردازش تصویر | ImageMagick، cwebp، avifenc |
+| WebP | ✅ |
+| AVIF | ✅ |
+| PNG | ✅ |
+| JPEG / JPG | ✅ |
+| TIFF | ✅ |
+| BMP | ✅ |
+| GIF | ✅ |
+| ICO | ✅ |
 
 ---
 
-## ابزارهای داخلی
-
-Image Toolkit از ابزارهای خط فرمان زیر استفاده می‌کند:
+## 🧪 پشت صحنه از چی استفاده می‌کنه؟
 
 | ابزار | کاربرد |
 |---|---|
-| ImageMagick `magick` | تبدیل، resize، metadata و پردازش عمومی تصاویر |
-| WebP `cwebp` | فشرده‌سازی و خروجی WebP |
-| libavif `avifenc` | ساخت خروجی AVIF |
+| **ImageMagick** | تبدیل، resize، metadata و پردازش عمومی تصویر |
+| **cwebp** | ساخت خروجی WebP |
+| **avifenc** | ساخت خروجی AVIF |
 
-برنامه ابزارها را از این مسیرها پیدا می‌کند:
-
-1. ابزارهای bundle شده داخل برنامه
-2. فولدر vendor در حالت توسعه
-3. مسیر سیستم یا PATH به‌عنوان fallback
+برنامه اول ابزارهای bundle شده داخل خودش رو چک می‌کنه، بعد فولدر `vendor` در حالت توسعه، و در نهایت ابزارهای نصب‌شده روی سیستم رو به عنوان fallback استفاده می‌کنه.
 
 ---
 
-## ساختار پروژه
+## 🖥️ پلتفرم‌ها
 
-```text
-image-toolkit/
-├── src/
-│   ├── app/
-│   ├── components/
-│   ├── hooks/
-│   ├── lib/
-│   ├── stores/
-│   └── types/
-├── src-tauri/
-│   ├── src/
-│   │   ├── cli/
-│   │   ├── commands.rs
-│   │   ├── models.rs
-│   │   ├── tools.rs
-│   │   └── tool_status.rs
-│   ├── vendor/
-│   │   ├── linux-x64/
-│   │   ├── windows-x64/
-│   │   └── THIRD_PARTY_NOTICES/
-│   └── tauri.conf.json
-├── docs/
-│   └── TECHNICAL.md
-├── README.md
-└── README.fa.md
-```
+| سیستم‌عامل | خروجی |
+|---|---|
+| Linux | `.deb` |
+| Linux | `.AppImage` |
+| Windows | installer با فرمت `.exe` |
+| macOS | در برنامه آینده |
 
 ---
 
-## دریافت سورس
+## 📸 اسکرین‌شات
+
+<div align="center">
+
+<img src="./docs/screenshot/home.png" alt="نمای اصلی Image Toolkit" width="900"/>
+
+</div>
+
+---
+
+## 🚀 اجرای پروژه از روی سورس
 
 ```bash
 git clone https://github.com/Aliazadi-1776/image-toolkit.git
@@ -150,38 +112,23 @@ cd image-toolkit
 npm install
 ```
 
-
----
-
-## اجرای توسعه
+برای اجرای نسخه توسعه:
 
 ```bash
 npm run tauri dev
 ```
 
-فقط اجرای زیر کافی نیست:
-
-```bash
-npm run dev
-```
-
-چون در این حالت فقط فرانت‌اند بالا می‌آید و امکاناتی مثل backend تائوری، دیالوگ native، پردازش صف و اجرای ابزارها درست کار نمی‌کنند.
+فقط `npm run dev` کافی نیست؛ چون در اون حالت فقط فرانت بالا میاد و بک‌اند Rust، دیالوگ native، اجرای ابزارها و queue درست کار نمی‌کنن.
 
 ---
 
-## ساخت از روی سورس
+## 🏗️ ساخت خروجی
 
 ### لینوکس
 
 ```bash
 npm run build
 npm run tauri build -- --bundles deb,appimage
-```
-
-خروجی:
-
-```text
-src-tauri/target/release/bundle/
 ```
 
 ### ویندوز روی خود ویندوز
@@ -191,15 +138,7 @@ npm install
 npm run tauri build -- --bundles nsis
 ```
 
-خروجی:
-
-```text
-src-tauri\target\release\bundle\nsis\
-```
-
 ### ساخت نسخه ویندوز از روی لینوکس
-
-برای ساخت installer ویندوز از لینوکس:
 
 ```bash
 sudo apt update
@@ -207,45 +146,35 @@ sudo apt install -y nsis lld llvm clang
 
 rustup target add x86_64-pc-windows-msvc
 cargo install --locked cargo-xwin
-```
 
-Build:
-
-```bash
 npm run tauri build -- \
   --runner cargo-xwin \
   --target x86_64-pc-windows-msvc \
   --bundles nsis
 ```
 
-خروجی:
-
-```text
-src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/
-```
-
 ---
 
-## ابزارهای Vendor
+## 📦 ساختار ابزارهای داخلی
 
-چینش پیشنهادی ابزارهای لینوکس:
+### لینوکس
 
 ```text
 src-tauri/vendor/linux-x64/
-├── avifenc
 ├── cwebp
+├── avifenc
 ├── lib/
 └── imagemagick/
     ├── AppRun
     └── usr/
 ```
 
-چینش پیشنهادی ابزارهای ویندوز:
+### ویندوز
 
 ```text
 src-tauri/vendor/windows-x64/
-├── avifenc.exe
 ├── cwebp.exe
+├── avifenc.exe
 └── imagemagick/
     ├── magick.exe
     ├── delegates.xml
@@ -253,63 +182,48 @@ src-tauri/vendor/windows-x64/
     └── ...
 ```
 
-برای انتشار سورس روی GitHub بهتر است فایل‌های سنگین third-party را مستقیم داخل repo نگذاری، مگر اینکه تصمیم بگیری پروژه را همراه ابزارها منتشر کنی.
-
-روش حرفه‌ای‌تر:
-
-- سورس داخل GitHub
-- فایل‌های نصبی داخل GitHub Releases
-- ابزارهای سنگین داخل Release Assets یا Git LFS
-- اسکریپت آماده‌سازی vendor در آینده
-
-توضیحات کامل‌تر در [مستندات فنی](./docs/TECHNICAL.md).
+اگر نمی‌خوای ریپو خیلی سنگین بشه، بهتره این فایل‌های باینری رو داخل GitHub Releases بذاری و مستقیم داخل repo commit نکنی.
 
 ---
 
-## خروجی‌های نهایی
+## 🗺️ مسیر آینده
 
-```text
-Linux:
-- image-toolkit_0.1.0_amd64.deb
-- Image Toolkit_0.1.0_amd64.AppImage
+- [ ] نسخه Portable برای ویندوز
+- [ ] خروجی macOS
+- [ ] مدیریت presetها
+- [ ] نمایش حجم قبل و بعد
+- [ ] تنظیمات حرفه‌ای‌تر WebP
+- [ ] تنظیمات حرفه‌ای‌تر AVIF
+- [ ] سوییچ زبان فارسی / انگلیسی داخل برنامه
+- [ ] GitHub Actions برای ساخت release
+- [ ] Auto Update
 
-Windows:
-- Image Toolkit_0.1.0_x64-setup.exe
-```
-
----
-
-## حریم خصوصی
-
-Image Toolkit کاملاً local-first است.
-
-- آپلود ابری ندارد
-- حساب کاربری نمی‌خواهد
-- telemetry پیش‌فرض ندارد
-- فایل‌ها روی سیستم خود کاربر پردازش می‌شوند
+جزئیات بیشتر توی [TODO.md](./TODO.md) هست.
 
 ---
 
+## 🔒 حریم خصوصی
 
-## Credits
+Image Toolkit لوکال‌فرست طراحی شده: آپلود ابری نداره، حساب کاربری نمی‌خواد، telemetry پیش‌فرض نداره و فایل‌ها روی سیستم خودت پردازش می‌شن.
 
-ساخته‌شده توسط **ViraPeak**.
-
-وب‌سایت: [virapeak.ir](https://virapeak.ir)
-
-ساخته‌شده توسط **wrench**.
-تلگرام : [im_wrench](https://t.me/im_wrench)
 ---
 
-## نقشه راه
+## 🧑‍💻 سازنده
 
-- مدیریت presetها
-- کنترل‌های تخصصی‌تر AVIF
-- پنل اختصاصی WebP
-- انتخاب فولدر خروجی با Drag & Drop
-- templateهای پیشرفته نام‌گذاری خروجی
-- رابط چندزبانه
-- Auto-update
-- خروجی macOS
-- GitHub Actions برای Release خودکار
+ساخته‌شده با قهوه زیاد و کمی آشوب توسط **wrench** 🔧
 
+تلگرام: [@im_wrench](https://t.me/im_wrench)
+
+---
+
+## 📄 لایسنس
+
+MIT License — فایل [LICENSE](./LICENSE) رو ببین.
+
+---
+
+<div align="center" dir="rtl">
+
+### اگر به کارت اومد، یه Star کوچیک خیلی خوشحالم می‌کنه ⭐
+
+</div>
