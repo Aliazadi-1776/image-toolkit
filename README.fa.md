@@ -326,6 +326,8 @@ src-tauri/vendor/THIRD_PARTY_NOTICES/
 
 وب‌سایت: [virapeak.ir](https://virapeak.ir)
 
+ساخته‌شده توسط **wrench**.
+تلگرام : [im_wrench](https://t.me/im_wrench)
 ---
 
 ## نقشه راه
@@ -339,3 +341,4 @@ src-tauri/vendor/THIRD_PARTY_NOTICES/
 - Auto-update
 - خروجی macOS
 - GitHub Actions برای Release خودکار
+
