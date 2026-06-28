@@ -147,8 +147,6 @@ cd image-toolkit
 npm install
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username or organization.
-
 ---
 
 ## Development
