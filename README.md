@@ -142,7 +142,7 @@ image-toolkit/
 ## Clone the Source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/image-toolkit.git
+git clone https://github.com/Aliazadi-1776/image-toolkit.git
 cd image-toolkit
 npm install
 ```
