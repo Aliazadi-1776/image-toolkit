@@ -69,20 +69,6 @@ That means:
 ---
 
 ## Screenshots
-
-> Add screenshots after publishing the first release.
-
-```text
-docs/screenshots/
-├── home.png
-├── command-preview.png
-├── queue-progress.png
-└── bundled-tools.png
-```
-
-Example Markdown:
-
-
 ![Image Toolkit Home](docs/screenshot/home.png)
 
 
