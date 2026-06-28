@@ -92,7 +92,7 @@
 Recommended files for the first release:
 
 * [x] `ImageToolkit-Linux-x64.deb`
-* [x] `ImageToolkit-Linux-x64.AppImage`
+* [ ] `ImageToolkit-Linux-x64.AppImage`
 * [x] `ImageToolkit-Windows-x64-Setup.exe`
 * [x] `SHA256SUMS.txt`
 * [x] `RELEASE_NOTES.md`
