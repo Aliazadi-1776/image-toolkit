@@ -449,41 +449,41 @@ For public releases, recommended modes:
 
 Before publishing a GitHub Release:
 
-- [ ] Build Linux `.deb`
+- [x] Build Linux `.deb`
 - [ ] Build Linux `.AppImage`
-- [ ] Build Windows `.exe`
-- [ ] Test bundled tools on a clean Linux system
-- [ ] Test installer on a real Windows machine
-- [ ] Check WebView2 behavior on Windows
-- [ ] Test JPG to WebP
-- [ ] Test JPG to AVIF
-- [ ] Test PNG to JPEG
-- [ ] Check command preview
-- [ ] Check queue progress
-- [ ] Add screenshots
-- [ ] Add license
-- [ ] Add third-party notices
-- [ ] Create release notes
+- [x] Build Windows `.exe`
+- [x] Test bundled tools on a clean Linux system
+- [x] Test installer on a real Windows machine
+- [x] Check WebView2 behavior on Windows
+- [x] Test JPG to WebP
+- [x] Test JPG to AVIF
+- [x] Test PNG to JPEG
+- [x] Check command preview
+- [x] Check queue progress
+- [x] Add screenshots
+- [x] Add license
+- [x] Add third-party notices
+- [x] Create release notes
 
 ### فارسی
 
 قبل از انتشار GitHub Release:
 
-- [ ] ساخت `.deb`
+- [x] ساخت `.deb`
 - [ ] ساخت `.AppImage`
-- [ ] ساخت `.exe` ویندوز
-- [ ] تست ابزارهای داخلی روی لینوکس تمیز
-- [ ] تست installer روی ویندوز واقعی
-- [ ] بررسی WebView2
-- [ ] تست JPG به WebP
-- [ ] تست JPG به AVIF
-- [ ] تست PNG به JPEG
-- [ ] بررسی command preview
-- [ ] بررسی queue progress
-- [ ] افزودن اسکرین‌شات‌ها
-- [ ] افزودن license
-- [ ] افزودن third-party notices
-- [ ] نوشتن release notes
+- [x] ساخت `.exe` ویندوز
+- [x] تست ابزارهای داخلی روی لینوکس تمیز
+- [x] تست installer روی ویندوز واقعی
+- [x] بررسی WebView2
+- [x] تست JPG به WebP
+- [x] تست JPG به AVIF
+- [x] تست PNG به JPEG
+- [x] بررسی command preview
+- [x] بررسی queue progress
+- [x] افزودن اسکرین‌شات‌ها
+- [x] افزودن license
+- [x] افزودن third-party notices
+- [x] نوشتن release notes
 
 ---
 
@@ -541,58 +541,3 @@ find /usr/lib/image-toolkit/vendor -type f | grep -Ei "magick|cwebp|avifenc"
 اگر library کم بود، با `ldd` بررسی کن و libraryهای لازم را داخل `vendor/linux-x64/lib` قرار بده.
 
 برای ImageMagick لینوکس، ساختار extract شده AppImage مطمئن‌تر است.
-
----
-
-## 16. Suggested GitHub Strategy
-
-Recommended repository setup:
-
-```text
-README.md
-README.fa.md
-docs/TECHNICAL.md
-LICENSE
-.gitignore
-src/
-src-tauri/
-```
-
-For heavy vendor binaries:
-
-Option A:
-
-```text
-Commit vendor binaries directly
-```
-
-Simple, but repository size grows quickly.
-
-Option B:
-
-```text
-Use GitHub Releases for binaries
-```
-
-Cleaner source repository.
-
-Option C:
-
-```text
-Use Git LFS
-```
-
-Useful for large binary files, but requires LFS setup for contributors.
-
-### فارسی
-
-برای GitHub بهتر است سورس تمیز بماند.
-
-سه انتخاب داری:
-
-1. فایل‌های vendor را مستقیم commit کنی
-2. فایل‌های سنگین را داخل GitHub Releases بگذاری
-3. از Git LFS استفاده کنی
-
-برای شروع سریع، commit مستقیم ساده‌تر است.  
-برای پروژه حرفه‌ای‌تر، بهتر است vendorهای سنگین را از repo جدا کنی و در Release Assets یا اسکریپت setup نگه داری.
