@@ -70,21 +70,10 @@ Image Toolkit یک رابط گرافیکی دسکتاپ برای پردازش ت
 
 ## اسکرین‌شات‌ها
 
-> بعد از انتشار نسخه اول، اسکرین‌شات‌ها را در پوشه زیر قرار بده.
 
-```text
-docs/screenshots/
-├── home.png
-├── command-preview.png
-├── queue-progress.png
-└── bundled-tools.png
-```
 
-نمونه استفاده در README:
+![Image Toolkit Home](docs/screenshot/home.png)
 
-```md
-![Image Toolkit Home](docs/screenshots/home.png)
-```
 
 ---
 
@@ -156,12 +145,11 @@ image-toolkit/
 ## دریافت سورس
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/image-toolkit.git
+git clone https://github.com/Aliazadi-1776/image-toolkit.git
 cd image-toolkit
 npm install
 ```
 
-به‌جای `YOUR_USERNAME` نام کاربری یا سازمان GitHub خودت را قرار بده.
 
 ---
 
