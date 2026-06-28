@@ -126,7 +126,7 @@ Future release assets:
 ## 🖥 Platform Support
 
 * [x] Linux `.deb`
-* [x] Linux `.AppImage`
+* [ ] Linux `.AppImage`
 * [x] Windows NSIS `.exe` installer
 * [ ] Windows portable ZIP
 * [ ] macOS Apple Silicon build
