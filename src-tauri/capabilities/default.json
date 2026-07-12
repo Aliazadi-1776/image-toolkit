@@ -1,1 +1,17 @@
+<<<<<<< HEAD
 { "$schema": "../gen/schemas/desktop-schema.json", "identifier": "default", "description": "Default desktop permissions", "windows": ["main"], "permissions": ["core:default", "dialog:default"] }
+=======
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "dialog:default"
+  ]
+}
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76

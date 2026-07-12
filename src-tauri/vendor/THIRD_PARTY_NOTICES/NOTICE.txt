@@ -1,0 +1,7 @@
+Image Toolkit bundles third-party command-line tools.
+
+ImageMagick
+Copyright ImageMagick Studio LLC
+ImageMagick is distributed under the ImageMagick License.
+
+This application is not endorsed by ImageMagick Studio LLC.

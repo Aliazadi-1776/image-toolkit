@@ -2,14 +2,18 @@ import { create } from "zustand";
 import type {
   CommandPreview,
   CompressionMode,
+<<<<<<< HEAD
   CropAspect,
   CropOptions,
   CropUnit,
   FileProcessingOptions,
+=======
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
   ImageFile,
   MetadataOptions,
   MetadataWriteOptions,
   OperationRequest,
+<<<<<<< HEAD
   QueueFinishedEvent,
   QueueItemFinishedEvent,
   QueueProgressEvent,
@@ -17,20 +21,34 @@ import type {
   ResizeMode,
   RunSummary,
   TargetFormat,
+=======
+  ResizeMode,
+  RunLogEntry,
+  RunSummary,
+  TargetFormat,
+  ToolPaths,
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
 } from "@/types/toolkit";
 import { getCommandPreview, startQueue } from "@/lib/tauri";
 
 interface ToolkitState {
   request: OperationRequest;
+<<<<<<< HEAD
   selectedCropPath: string | null;
   selectedOptionsPath: string | null;
   preview: CommandPreview | null;
   previewError: string | null;
+=======
+  preview: CommandPreview | null;
+  previewError: string | null;
+
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
   isRunning: boolean;
   currentFile: string | null;
   currentIndex: number;
   runSummary: RunSummary | null;
   runError: string | null;
+<<<<<<< HEAD
   setFiles: (files: ImageFile[]) => void;
   clearFiles: () => void;
   setSelectedOptionsPath: (path: string) => void;
@@ -133,17 +151,105 @@ const defaultRequest: OperationRequest = {
   },
   writeMetadata: {
     title: "",
+=======
+
+  setFiles: (files: ImageFile[]) => void;
+  clearFiles: () => void;
+  setToolPath: (key: keyof ToolPaths, value: string) => void;
+  setTargetFormat: (format: TargetFormat) => void;
+  setQuality: (quality: number) => void;
+  setCompression: (compression: CompressionMode) => void;
+  setResizeWidth: (width: number | null) => void;
+  setResizeHeight: (height: number | null) => void;
+  setResizeMode: (mode: ResizeMode) => void;
+  setResizeEnabled: (enabled: boolean) => void;
+  setMetadataFlag: (key: keyof MetadataOptions, value: boolean) => void;
+  setMetadataWriteField: (
+    key: keyof MetadataWriteOptions,
+    value: string,
+  ) => void;
+  setOverwrite: (overwrite: boolean) => void;
+
+  refreshPreview: () => Promise<void>;
+  execute: () => Promise<void>;
+
+  queueStarted: (total: number) => void;
+  queueProgress: (payload: {
+    index: number;
+    total: number;
+    fileName: string;
+    completed: number;
+    failed: number;
+  }) => void;
+  queueItemFinished: (payload: {
+    entry: RunLogEntry;
+    completed: number;
+    failed: number;
+    total: number;
+  }) => void;
+  queueFinished: (payload: {
+    total: number;
+    completed: number;
+    failed: number;
+  }) => void;
+}
+
+const initialRequest: OperationRequest = {
+  inputFiles: [],
+  output: {
+    mode: "SameFolder",
+    customFolder: null,
+    overwrite: false,
+    createOutputFolder: true,
+  },
+  resize: {
+    enabled: true,
+    width: 1200,
+    height: 1200,
+    keepAspectRatio: true,
+    mode: "Fit",
+  },
+  targetFormat: "WebP",
+  quality: 80,
+  compression: "Lossy",
+  metadata: {
+    stripExif: false,
+    stripGps: false,
+    stripCameraInformation: false,
+    stripIccProfile: false,
+    stripXmp: false,
+    stripEverything: true,
+  },
+  metadataWrite: {
+    copyright: "",
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     author: "",
     creator: "",
     description: "",
     keywords: "",
+<<<<<<< HEAD
     copyright: "",
     comment: "",
   },
+=======
+    comment: "",
+  },
+  colorProfile: "KeepOriginal",
+  dpi: {
+    enabled: false,
+    value: null,
+  },
+  naming: {
+    mode: "KeepOriginal",
+    value: null,
+    startNumber: 1,
+  },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
   tools: {
     magick: "magick",
     cwebp: "cwebp",
     avifenc: "avifenc",
+<<<<<<< HEAD
     exiftool: "exiftool",
   },
 };
@@ -243,6 +349,16 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
   selectedOptionsPath: null,
   preview: null,
   previewError: null,
+=======
+  },
+};
+
+export const useToolkitStore = create<ToolkitState>((set, get) => ({
+  request: initialRequest,
+  preview: null,
+  previewError: null,
+
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
   isRunning: false,
   currentFile: null,
   currentIndex: 0,
@@ -250,6 +366,7 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
   runError: null,
 
   setFiles: (files) => {
+<<<<<<< HEAD
     set((state) => {
       const perFileCrops = buildCropMap(files, state.request.perFileCrops || {});
       const perFileOptions = buildOptionsMap(files, state.request.perFileOptions || {}, state.request);
@@ -280,10 +397,23 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         previewError: null,
       };
     });
+=======
+    set((state) => ({
+      request: {
+        ...state.request,
+        inputFiles: files,
+      },
+      runSummary: null,
+      runError: null,
+      currentFile: null,
+      currentIndex: 0,
+    }));
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
   },
 
   clearFiles: () => {
     set((state) => ({
+<<<<<<< HEAD
       selectedCropPath: null,
       selectedOptionsPath: null,
       request: {
@@ -292,6 +422,11 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         crop: defaultCrop,
         perFileCrops: {},
         perFileOptions: {},
+=======
+      request: {
+        ...state.request,
+        inputFiles: [],
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
       },
       preview: null,
       previewError: null,
@@ -302,6 +437,7 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
     }));
   },
 
+<<<<<<< HEAD
   setSelectedOptionsPath: (path) => {
     const options = get().request.perFileOptions[path] ?? getGlobalOptions(get().request);
     set((state) => ({
@@ -313,10 +449,21 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         compression: options.compression,
         resize: { ...options.resize },
         perFileOptions: { ...state.request.perFileOptions, [path]: options },
+=======
+  setToolPath: (key, value) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        tools: {
+          ...state.request.tools,
+          [key]: value,
+        },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
       },
     }));
   },
 
+<<<<<<< HEAD
   getOptionsForFile: (file) => {
     if (!file) return getGlobalOptions(get().request);
     return get().request.perFileOptions[file.path] ?? getGlobalOptions(get().request);
@@ -422,10 +569,74 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         ...state.request,
         crop: state.selectedCropPath === path ? { ...current, enabled } : state.request.crop,
         perFileCrops: { ...state.request.perFileCrops, [path]: { ...current, enabled } },
+=======
+  setTargetFormat: (format) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        targetFormat: format,
       },
     }));
   },
 
+  setQuality: (quality) => {
+    const safeQuality = Math.max(0, Math.min(100, quality));
+
+    set((state) => ({
+      request: {
+        ...state.request,
+        quality: safeQuality,
+      },
+    }));
+  },
+
+  setCompression: (compression) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        compression,
+      },
+    }));
+  },
+
+  setResizeWidth: (width) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        resize: {
+          ...state.request.resize,
+          width,
+        },
+      },
+    }));
+  },
+
+  setResizeHeight: (height) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        resize: {
+          ...state.request.resize,
+          height,
+        },
+      },
+    }));
+  },
+
+  setResizeMode: (mode) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        resize: {
+          ...state.request.resize,
+          mode,
+        },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
+      },
+    }));
+  },
+
+<<<<<<< HEAD
   setCropPixels: (crop, reference) => {
     const selectedPath = get().selectedCropPath ?? reference?.path;
     if (selectedPath) return get().setCropPixelsForPath(selectedPath, crop, reference);
@@ -441,10 +652,21 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         ...state.request,
         crop: state.selectedCropPath === path ? nextCrop : state.request.crop,
         perFileCrops: { ...state.request.perFileCrops, [path]: nextCrop },
+=======
+  setResizeEnabled: (enabled) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        resize: {
+          ...state.request.resize,
+          enabled,
+        },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
       },
     }));
   },
 
+<<<<<<< HEAD
   setCropUnit: (unit) => set((state) => ({ request: { ...state.request, crop: { ...state.request.crop, unit } } })),
   setCropZoom: (zoom) => set((state) => ({ request: { ...state.request, crop: { ...state.request.crop, zoom } } })),
 
@@ -463,10 +685,21 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         ...state.request,
         crop: state.selectedCropPath === path ? nextCrop : state.request.crop,
         perFileCrops: { ...state.request.perFileCrops, [path]: nextCrop },
+=======
+  setMetadataFlag: (key, value) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        metadata: {
+          ...state.request.metadata,
+          [key]: value,
+        },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
       },
     }));
   },
 
+<<<<<<< HEAD
   resetCropToImage: () => {
     const selectedPath = get().selectedCropPath;
     if (selectedPath) return get().resetCropForPath(selectedPath);
@@ -483,10 +716,21 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
         ...state.request,
         crop: state.selectedCropPath === path ? nextCrop : state.request.crop,
         perFileCrops: { ...state.request.perFileCrops, [path]: nextCrop },
+=======
+  setMetadataWriteField: (key, value) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        metadataWrite: {
+          ...state.request.metadataWrite,
+          [key]: value,
+        },
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
       },
     }));
   },
 
+<<<<<<< HEAD
   applySelectedCropToAll: () => {
     const selectedPath = get().selectedCropPath;
     if (!selectedPath) return;
@@ -537,10 +781,52 @@ export const useToolkitStore = create<ToolkitState>((set, get) => ({
       set({ preview, previewError: null });
     } catch (error) {
       set({ preview: null, previewError: getErrorMessage(error) });
+=======
+  setOverwrite: (overwrite) => {
+    set((state) => ({
+      request: {
+        ...state.request,
+        output: {
+          ...state.request.output,
+          overwrite,
+        },
+      },
+    }));
+  },
+
+  refreshPreview: async () => {
+    if (get().request.inputFiles.length === 0) {
+      set({
+        preview: null,
+        previewError: "Select or drop an image to generate command preview.",
+      });
+      return;
+    }
+
+    try {
+      const preview = await getCommandPreview(get().request);
+      set({
+        preview,
+        previewError: null,
+      });
+    } catch (error) {
+      const message =
+        typeof error === "string"
+          ? error
+          : error instanceof Error
+            ? error.message
+            : "Failed to generate command preview.";
+
+      set({
+        preview: null,
+        previewError: message,
+      });
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     }
   },
 
   execute: async () => {
+<<<<<<< HEAD
     const request = get().request;
     if (request.inputFiles.length === 0) {
       set({ runError: "Please add at least one image first." });
@@ -590,3 +876,99 @@ function getErrorMessage(error: unknown): string {
   if (error instanceof Error) return error.message;
   return "Unknown error.";
 }
+=======
+    if (get().request.inputFiles.length === 0) {
+      set({
+        runError: "No image selected.",
+      });
+      return;
+    }
+
+    if (get().isRunning) {
+      return;
+    }
+
+    set({
+      isRunning: true,
+      runError: null,
+      runSummary: {
+        total: get().request.inputFiles.length,
+        completed: 0,
+        failed: 0,
+        entries: [],
+      },
+      currentFile: null,
+      currentIndex: 0,
+    });
+
+    try {
+      await startQueue(get().request);
+    } catch (error) {
+      const message =
+        typeof error === "string"
+          ? error
+          : error instanceof Error
+            ? error.message
+            : "Failed to start queue.";
+
+      set({
+        runError: message,
+        isRunning: false,
+      });
+    }
+  },
+
+  queueStarted: (total) => {
+    set({
+      isRunning: true,
+      runError: null,
+      runSummary: {
+        total,
+        completed: 0,
+        failed: 0,
+        entries: [],
+      },
+    });
+  },
+
+  queueProgress: (payload) => {
+    set({
+      currentFile: payload.fileName,
+      currentIndex: payload.index + 1,
+      runSummary: {
+        total: payload.total,
+        completed: payload.completed,
+        failed: payload.failed,
+        entries: get().runSummary?.entries ?? [],
+      },
+    });
+  },
+
+  queueItemFinished: (payload) => {
+    const previousEntries = get().runSummary?.entries ?? [];
+
+    set({
+      runSummary: {
+        total: payload.total,
+        completed: payload.completed,
+        failed: payload.failed,
+        entries: [...previousEntries, payload.entry],
+      },
+    });
+  },
+
+  queueFinished: (payload) => {
+    set({
+      isRunning: false,
+      currentFile: null,
+      currentIndex: payload.total,
+      runSummary: {
+        total: payload.total,
+        completed: payload.completed,
+        failed: payload.failed,
+        entries: get().runSummary?.entries ?? [],
+      },
+    });
+  },
+}));
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76

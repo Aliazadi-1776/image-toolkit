@@ -5,7 +5,11 @@
   "identifier": "ir.virapeak.imagetoolkit",
   "build": {
     "beforeDevCommand": "npm run dev",
+<<<<<<< HEAD
     "devUrl": "http://127.0.0.1:1420",
+=======
+    "devUrl": "http://localhost:1420",
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
@@ -22,6 +26,7 @@
       }
     ],
     "security": {
+<<<<<<< HEAD
       "csp": null,
       "assetProtocol": {
         "enable": true,
@@ -35,10 +40,14 @@
           "$TEMP/**"
         ]
       }
+=======
+      "csp": null
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     }
   },
   "bundle": {
     "active": true,
+<<<<<<< HEAD
     "targets": [
       "deb",
       "appimage",
@@ -51,12 +60,34 @@
     "resources": {
       "vendor/windows-x64/": "vendor/windows-x64"
     },
+=======
+    "targets": ["deb", "appimage", "nsis"],
+    "resources": {
+      "vendor/linux-x64/": "vendor/linux-x64",
+      "vendor/windows-x64/": "vendor/windows-x64",
+      "vendor/THIRD_PARTY_NOTICES/": "vendor/THIRD_PARTY_NOTICES"
+    },
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      }
+    },
+    "publisher": "ViraPeak",
+    "copyright": "Copyright © 2026 ViraPeak",
+    "shortDescription": "Transparent batch image processing GUI",
+    "longDescription": "Image Toolkit is a transparent desktop GUI for ImageMagick, cwebp and avifenc.",
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
+<<<<<<< HEAD
       "icons/icon.ico",
       "icons/icon.png"
+=======
+      "icons/icon.icns",
+      "icons/icon.ico"
+>>>>>>> e2cf61b00c4b93804c91a2f10e49509b357c3b76
     ]
   }
 }
