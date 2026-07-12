@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+
+# frontend build output
+dist/
+
+# Rust / Tauri build output
+target/
+src-tauri/target/
+
+# environment files
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# logs / temp
+*.log
+*.tmp
+*.part
+
+# release output folders
+image-toolkit-release/
+release/
+
+# generated installers / packages
+*.deb
+*.AppImage
+*.msi
+*.dmg
+
+# archives / downloaded packages
+*.zip
+*.tar
+*.tar.gz
+*.7z
