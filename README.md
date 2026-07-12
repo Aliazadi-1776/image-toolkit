@@ -2,7 +2,7 @@
 
 # 🖼️ Image Toolkit
 
-### A fast, local-first desktop app for converting, resizing, compressing, and cleaning up images — without hiding the real command behind the UI.
+### A fast, local-first desktop app for converting, resizing, compressing, cropping, and cleaning image metadata — without hiding the real tools behind the UI.
 
 <img src="./docs/screenshot/home.png" alt="Image Toolkit Screenshot" width="900"/>
 
@@ -16,7 +16,7 @@
 
 <br/>
 
-[فارسی](./README.fa.md) · [Technical Notes](./TECHNICAL.md) · [TODO](./TODO.md) · [Repository](https://github.com/Aliazadi-1776/image-toolkit)
+[فارسی](./README.fa.md) · [TODO](./TODO.md) · [Repository](https://github.com/Aliazadi-1776/image-toolkit)
 
 </div>
 
@@ -24,34 +24,50 @@
 
 ## ✨ What is Image Toolkit?
 
-Image Toolkit is a desktop image utility built for people who process a lot of images and still want to know exactly what is happening.
+**Image Toolkit** is a local-first desktop image utility for people who process many images and still want full control over what happens behind the interface.
 
-It is not a mystery black box. It is a clean GUI that talks to proven command-line tools like **ImageMagick**, **cwebp**, and **avifenc**.
+It is not an online converter, and it is not a black box.  
+It is a clean desktop GUI built on top of real command-line tools like **ImageMagick**, **cwebp**, **avifenc**, and **ExifTool**.
 
-You choose the files, pick the output format, set quality or resize rules, and the app shows the command it is going to run.
+You select images, choose output formats, set quality, resize rules, crop settings, metadata options, and the app handles the processing locally.
 
-> simple UI on top, real tools underneath.
-
----
-
-## ⚡ Why I built it
-
-Most image converters either feel too heavy, too online, or too hidden.
-
-I wanted something that works locally, does not upload files anywhere, can process a real batch queue, shows the final command, and ships as a real desktop app for Linux and Windows.
+> Clean UI on top. Real tools underneath.
 
 ---
 
-## 🧰 What it can do
+## ⚡ Why it exists
+
+Most image converters are either too heavy, too online, or too hidden.
+
+Image Toolkit was built to be:
+
+- local-first
+- transparent
+- batch-friendly
+- practical for real image workflows
+- usable as a desktop app on Linux and Windows
+- powered by trusted CLI tools
+
+---
+
+## 🧰 Features
 
 - Batch image conversion
-- Resize and compress images
-- Strip metadata
-- Write basic metadata
-- Preview generated commands
+- Per-image output settings
+- Per-image crop
+- Resize controls
+- Compression controls
+- WebP output
+- AVIF output
+- PNG, JPEG, TIFF, BMP, GIF, and ICO support
+- Metadata cleanup
+- Basic metadata writing
 - Queue-based processing
-- Per-file progress and logs
+- Per-file progress
+- Processing logs
+- Command preview
 - Bundled tool status check
+- Linux and Windows builds
 - Local-only workflow
 
 ---
@@ -71,15 +87,20 @@ I wanted something that works locally, does not upload files anywhere, can proce
 
 ---
 
-## 🧪 The tools behind it
+## 🧪 Tools behind the app
 
 | Tool | Used for |
 |---|---|
-| **ImageMagick** | conversion, resize, metadata, general processing |
+| **ImageMagick** | general conversion, resize, crop, format handling |
 | **cwebp** | WebP encoding |
 | **avifenc** | AVIF encoding |
+| **ExifTool** | metadata writing and cleanup |
 
-The app tries to find tools from bundled resources first, then the local development `vendor` folder, and finally the system PATH.
+The app tries to find tools in this order:
+
+1. Bundled Tauri resources
+2. Local development `src-tauri/vendor` folder
+3. System `PATH`
 
 ---
 
@@ -110,120 +131,3 @@ The app tries to find tools from bundled resources first, then the local develop
 git clone https://github.com/Aliazadi-1776/image-toolkit.git
 cd image-toolkit
 npm install
-```
-
-Run the desktop app:
-
-```bash
-npm run tauri dev
-```
-
-Do not use only `npm run dev` if you want to test the full app. The frontend may open, but native dialogs, backend commands, queue events, and bundled tools need the Tauri runtime.
-
----
-
-## 🏗️ Build
-
-### Linux
-
-```bash
-npm run build
-npm run tauri build -- --bundles deb,appimage
-```
-
-### Windows from Windows
-
-```powershell
-npm install
-npm run tauri build -- --bundles nsis
-```
-
-### Windows from Linux
-
-```bash
-sudo apt update
-sudo apt install -y nsis lld llvm clang
-
-rustup target add x86_64-pc-windows-msvc
-cargo install --locked cargo-xwin
-
-npm run tauri build -- \
-  --runner cargo-xwin \
-  --target x86_64-pc-windows-msvc \
-  --bundles nsis
-```
-
----
-
-## 📦 Vendor layout
-
-### Linux
-
-```text
-src-tauri/vendor/linux-x64/
-├── cwebp
-├── avifenc
-├── lib/
-└── imagemagick/
-    ├── AppRun
-    └── usr/
-```
-
-### Windows
-
-```text
-src-tauri/vendor/windows-x64/
-├── cwebp.exe
-├── avifenc.exe
-└── imagemagick/
-    ├── magick.exe
-    ├── delegates.xml
-    ├── policy.xml
-    └── ...
-```
-
-If you want a lighter repository, keep large binaries out of Git and attach them to GitHub Releases instead.
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Windows portable ZIP
-- [ ] macOS build
-- [ ] Preset manager
-- [ ] before/after file size report
-- [ ] better WebP controls
-- [ ] better AVIF controls
-- [ ] Persian / English UI switcher
-- [ ] GitHub Actions release pipeline
-- [ ] auto-update support
-
-More details are in [TODO.md](./TODO.md).
-
----
-
-## 🔒 Privacy
-
-Image Toolkit is local-first: no cloud upload, no account, no telemetry by default, and files stay on your machine.
-
----
-
-## 🧑‍💻 Creator
-
-Built with a lot of coffee and a little bit of chaos by **wrench** 🔧
-
-Telegram: [@im_wrench](https://t.me/im_wrench)
-
----
-
-## 📄 License
-
-MIT License. See [LICENSE](./LICENSE).
-
----
-
-<div align="center">
-
-### If this tool helped you, a star would make my day ⭐
-[$donate❤️‍🔥](https://daramet.com/wrench)
-</div>
